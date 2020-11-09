@@ -1,0 +1,16 @@
+@model Desafio_MVC.DTO.AlocacaoDTO;
+
+<h1>Alocação</h1>
+<hr/>
+
+<form class="form-horizontal" asp-controller="Alocacao" asp-action="Alocar" method="POST">
+   
+    <label asp-for="FuncionarioID">Selecione o funcionário que deseja alocar:</label>
+    <select class="form-control" asp-for="FuncionarioID" asp-items='@(new SelectList(@ViewBag.Funcionarios,"Id","Nome"))'></select><br/>
+
+    <label asp-for="VagaID">Selecione a vaga que deseja alocar o funcionário:</label>
+    <select class="form-control" asp-for="VagaID" asp-items='@(new SelectList(@ViewBag.Vagas,"Id","Codigo_Vaga"))'></select>
+
+    <hr/>
+    <button class="btn btn-primary">Alocar</button>
+</form>

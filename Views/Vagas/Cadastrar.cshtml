@@ -1,0 +1,26 @@
+@model Desafio_MVC.DTO.VagaDTO;
+
+<h1>Cadastro de Vaga</h1>
+<hr/>
+
+<form class="form-horizontal" asp-controller="Vagas" asp-action="Salvar" method="POST">
+    <input type="hidden" asp-for="Id" value="0">
+    <label asp-for="Projeto">Projeto:</label>
+    <input class="form-control" type="text" asp-for="Projeto" placeholder="Nome do Projeto"><br/>
+    <span style="color:red;" asp-validation-for="Projeto"></span><br/>
+
+    <label asp-for="Codigo_Vaga">Código da Vaga:</label>
+    <input class="form-control" type="text" asp-for="Codigo_Vaga" placeholder="#CODI0000"><br>
+    <span style="color:red;" asp-validation-for="Codigo_Vaga"></span><br>
+
+    <label asp-for="Descricao_Vaga">Descrição da Vaga:</label>
+    <input class="form-control" type="text" asp-for="Descricao_Vaga" placeholder="Desenvolvedor, Analista, Gestor"><br>
+    <span style="color:red;" asp-validation-for="Descricao_Vaga"></span><br/>
+
+    <label asp-for="Qtd_Vaga">Quantidade de Vagas:</label>
+    <input class="form-control" type="number" asp-for="Qtd_Vaga" placeholder="1"><br/>
+    <span style="color:red;" asp-validation-for="Qtd_Vaga"></span><br/>
+
+    <hr/>
+    <button class="btn btn-primary">Cadastrar</button>
+</form>

@@ -1,0 +1,43 @@
+@model IEnumerable<Desafio_MVC.Models.Funcionario>
+
+<script>
+    $(document).ready( function () {
+    $('#funcionarios').DataTable();
+    } );
+</script>
+
+<h1>Funcionários</h1>
+<hr/>
+<table id="funcionarios" class="table table-bordered table-primary table-striped">
+    <thead class="thead-light">
+        <tr>
+            <th>Nome</th>
+            <th>Cargo</th>
+            <th>Tecnologias</th>
+            <th>Local de Trabalho</th>
+            <th>Inicio WA</th>
+            <th>Previsão término WA</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var funcionario in Model)
+        {
+            <tr>
+                <td>@funcionario.Nome</td>
+                <td>@funcionario.Cargo</td>
+                <td></td>
+                <td>
+                    <form asp-action="Deletar" asp-controller="Funcionarios" style="display: inline;">
+                        <input type="hidden" name="id" id="id" value="@funcionario.Id">
+                        <button class="btn btn-sm btn-danger">Deletar</button>
+                    </form>
+                </td>
+                <td>@funcionario.Inicio_Wa.ToString("dd/MM/yyyy")</td>
+                <td>@funcionario.Termino_Wa.ToString("dd/MM/yyyy")</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<hr/>
+<a asp-action="Cadastrar" asp-controller="Funcionarios"><button class="btn btn-primary" style="display:block;margin:0 auto;">Cadastrar Funcionário</button></a>
